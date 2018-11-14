@@ -62,4 +62,37 @@ public class QueueTest {
 //            System.out.println(name);
 //        }
     }
+    
+    @Test
+    public void testLinkQueue() {
+        CircleLinkQueue circleLinkQueue = new CircleLinkQueue(5);
+        circleLinkQueue.dequeue();
+        circleLinkQueue.dequeue();
+
+        circleLinkQueue.enqueue("first node");
+        circleLinkQueue.enqueue("second node");
+        circleLinkQueue.enqueue("third node");
+        circleLinkQueue.enqueue("forth node");
+        circleLinkQueue.enqueue("fifth node");
+        circleLinkQueue.dequeue();
+        circleLinkQueue.dequeue();
+        circleLinkQueue.dequeue();
+        circleLinkQueue.dequeue();
+        circleLinkQueue.dequeue();
+        circleLinkQueue.dequeue();
+        circleLinkQueue.dequeue();
+        circleLinkQueue.enqueue("sixth node");
+        circleLinkQueue.enqueue("1 node");
+        circleLinkQueue.enqueue("2 node");
+        circleLinkQueue.enqueue("3 node");
+        circleLinkQueue.enqueue("4 node");
+        circleLinkQueue.enqueue("5 node");
+        circleLinkQueue.enqueue("6 node");
+        circleLinkQueue.enqueue("7 node");
+        circleLinkQueue.enqueue("8 node");
+        circleLinkQueue.enqueue("9 node");
+        while (circleLinkQueue.peek() != null) {
+            System.out.println("dequeue : " + circleLinkQueue.dequeue());
+        }
+    }
 }
