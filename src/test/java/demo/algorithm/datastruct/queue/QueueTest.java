@@ -95,4 +95,31 @@ public class QueueTest {
             System.out.println("dequeue : " + circleLinkQueue.dequeue());
         }
     }
+    
+    @Test
+    public void testCircleQueue() {
+        ArrayCircleQueue circleQueue = new ArrayCircleQueue(5);
+        System.out.println("dequeue 1 : " + circleQueue.dequeue());
+        System.out.println("dequeue 2 : " + circleQueue.dequeue());
+
+        circleQueue.enqueue("first node");
+        circleQueue.enqueue("second node");
+        circleQueue.enqueue("third node");
+        circleQueue.enqueue("forth node");
+        circleQueue.enqueue("fifth node");
+        circleQueue.enqueue("sixth node");
+        //System.out.println("dequeue 3 : " + circleQueue.dequeue());
+        //System.out.println("dequeue 4 : " + circleQueue.dequeue());
+        //System.out.println("dequeue 5 : " + circleQueue.dequeue());
+        circleQueue.enqueue("1 node");
+        circleQueue.enqueue("2 node");
+        circleQueue.enqueue("3 node");
+        circleQueue.enqueue("4 node");
+        System.out.println("dequeue 6 : " +circleQueue.dequeue());
+        circleQueue.enqueue("5 node");
+        circleQueue.enqueue("6 node");
+        while (circleQueue.peek() != null) {
+            System.out.println("dequeue : " + circleQueue.dequeue());
+        }
+    }
 }
