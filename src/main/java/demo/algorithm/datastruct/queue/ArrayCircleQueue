@@ -1,0 +1,62 @@
+package demo.algorithm.datastruct.queue;
+
+/**
+ * Created by mr.yang on 2018/11/4.
+ * 创建一个真实大小循环队列
+ */
+public class ArrayCircleQueue {
+    private String[] items;
+    private int capacity = 0;
+    private int head = 0;
+    private int tail = 0;
+    //当前队列的元素数量
+    private int size = 0;
+
+    public ArrayCircleQueue(int n) {
+        this.items = new String[n];
+        this.capacity = n;
+    }
+
+    /**
+     * 入队列（从队列尾部入）
+     * size = 0 ==> 空
+     * size = n ==> 满
+     * @param item
+     * @return
+     */
+    public boolean enqueue(String item) {
+        this.tail = this.tail % this.capacity;
+        this.items[this.tail] = item;
+        this.tail++;
+        //队列满了
+        if(this.size == this.capacity) {
+            //头部往后挪
+            this.head = (this.head + 1) % this.capacity;
+            return true;
+        }
+        this.size++;
+        return true;
+    }
+
+    /**
+     * 出队列（从队列头部出）
+     * @return
+     */
+    public String dequeue() {
+        //队列为空
+        if(this.size == 0) {
+            return null;
+        }
+        this.size--;
+        String item = this.items[this.head];
+        this.head = (this.head + 1) % this.capacity;
+        return item;
+    }
+
+    public String peek() {
+        if (this.size == 0) {
+            return null;
+        }
+        return this.items[this.head];
+    }
+}
