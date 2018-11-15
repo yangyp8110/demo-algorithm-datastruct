@@ -35,6 +35,7 @@ public class CircleLinkQueue {
         //队列满了
         if (this.head == this.tail.next) {
             //this.head = this.head.next; //当循环队列满了，head后移，tail覆盖原来的head位置
+            //return true;
             return false;
         }
         this.tail.setValue(item);
